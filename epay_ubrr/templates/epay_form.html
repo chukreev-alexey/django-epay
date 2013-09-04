@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{{ form.target }}" method="POST" id="epay_form">
+        <p>{{ form.as_p }}</p>
+        <p>Через 5 секунд вы будете автоматически перенаправлены на страницу платежной системы. Либо вы можете не дожидаясь нажать на кнопку "Оплатить".</p>
+        <p><input type="submit" value="Оплатить"></p>
+    </form>
+    <script type="text/javascript">
+      setTimeout(function(){
+        document.getElementById("epay_form").submit();
+      }, 5000);
+    </script>
+{% endblock %}
